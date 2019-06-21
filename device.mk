@@ -20,6 +20,10 @@ $(call inherit-product, vendor/nokia/PLE/PLE-vendor.mk)
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 
+
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
@@ -258,10 +262,6 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service \
     android.hardware.light-V2.0-java
 
-# LiveDisplay native
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@1.0-service-sdm
-
 # Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
@@ -289,6 +289,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/vendor/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/vendor/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/vendor/etc/media_codecs_google_video_le.xml \
+
+PRODUCT_BOOT_JARS += \
+    WfdCommon
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -445,7 +448,8 @@ PRODUCT_PACKAGES += \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     libwpa_client \
-    libwcnss_qmi
+    libwcnss_qmi \
+    libwifi-hal-qcom
 
 PRODUCT_PACKAGES += \
     hostapd \
